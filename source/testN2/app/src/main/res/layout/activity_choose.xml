@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.geolabedu.testn2.ChooseActivity">
+
+    <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@android:drawable/sym_def_app_icon"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/imageView"
+    >
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/edit_saxeli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+         <EditText
+             android:layout_width="170dp"
+             android:layout_height="wrap_content"
+             android:hint="saxeli"
+             android:inputType="text"
+             android:id="@+id/saxeli" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_toRightOf="@+id/edit_saxeli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_gvari">
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="gvari"
+            android:inputType="text"
+            android:id="@+id/gvari" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_below="@+id/edit_saxeli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_mail">
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="mail"
+            android:inputType="text"
+            android:id="@+id/mail" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/edit_mail"
+        android:layout_below="@+id/edit_gvari">
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:hint="nomeri"
+            android:inputType="text"
+            android:id="@+id/nomeri"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+</RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send database"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
