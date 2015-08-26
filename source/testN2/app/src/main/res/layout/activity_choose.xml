@@ -17,7 +17,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_below="@+id/imageView"
-    >
+    android:id="@+id/relativeLayout">
     <android.support.design.widget.TextInputLayout
         android:id="@+id/edit_saxeli"
         android:layout_width="wrap_content"
@@ -68,6 +68,7 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/edit_nomeri"
         android:layout_toRightOf="@+id/edit_mail"
         android:layout_below="@+id/edit_gvari">
 
@@ -80,6 +81,21 @@
 
     </android.support.design.widget.TextInputLayout>
 
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/weli"
+        android:layout_toRightOf="@+id/edit_mail"
+        android:layout_below="@+id/edit_nomeri"
+        />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/modeli"
+        android:layout_toLeftOf="@+id/edit_nomeri"
+        android:layout_below="@+id/edit_mail"/>
+
 </RelativeLayout>
 
     <Button
@@ -89,5 +105,7 @@
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+
 
 </RelativeLayout>

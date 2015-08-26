@@ -16,13 +16,17 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 
 import com.example.geolabedu.testn2.database.VehiclContracts;
 import com.example.geolabedu.testn2.database.VehicleData;
@@ -51,6 +55,8 @@ public class ChooseActivity extends ActionBarActivity {
     Button bt;
     public static CardView cardView;
     Uri url;
+    Spinner spinner,spinner1;
+    ArrayAdapter<CharSequence> spinnerAdapter;
 
 
     @Override
@@ -59,6 +65,8 @@ public class ChooseActivity extends ActionBarActivity {
         setContentView(R.layout.activity_choose);
 
 
+        spinner= (Spinner) findViewById(R.id.modeli);
+        spinner1= (Spinner) findViewById(R.id.weli);
         cardView= (CardView) findViewById(R.id.cardlist_item);
         editText1= (EditText) findViewById(R.id.gvari);
         editText2= (EditText) findViewById(R.id.mail);
@@ -68,6 +76,7 @@ public class ChooseActivity extends ActionBarActivity {
         imageView= (ImageView) findViewById(R.id.imageView);
 
 
+        spinnerfill();
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,29 +128,23 @@ public class ChooseActivity extends ActionBarActivity {
         });
     }
 
-//    private void selectBD() {
-//        Cursor c = db.query(VehiclContracts.VEHICLE_TABLE_NAME, null, null, null, null, null, null);
-//
-//        if(c.moveToFirst()){
-//            do {
-//                String name = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_NAME));
-//                String fname = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_FNAME));
-//                String image = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_IMAGE));
-//                VehicleData item2 = new VehicleData(name,fname,image);
-//                list1.add(item2);
-//            } while(c.moveToNext());
-//        }
-//    }
+    private void spinnerfill() {
+        spinnerAdapter=ArrayAdapter.createFromResource(ChooseActivity.this, R.array.spinner_array_categ, android.R.layout.simple_spinner_item);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //aq unda davwero rom meore spinneri iyos pirvelze damokidebuli
+            }
 
-//    private void addDB(List list) {
-//        ContentValues values=new ContentValues();
-//        VehicleData data= (VehicleData) list.get(0);
-//        values.put(VehiclContracts.VEHICLE_PERSON_NAME, String.valueOf(data.getName()));
-//        values.put(VehiclContracts.VEHICLE_PERSON_FNAME, String.valueOf(data.getFname()));
-//        values.put(VehiclContracts.VEHICLE_IMAGE,data.getImage());
-//    }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-    //    Editable st=editText.getText();
+            }
+        });
+    }
+
+
     private void selectImage() {
 
         final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };

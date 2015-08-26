@@ -8,4 +8,44 @@
     <string name="hello_square">Hello Square World!</string>
     <string name="title_activity_choose">ChooseActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
+
+    <string-array name="spinner_array_categ">
+
+        <item>bmw</item>
+        <item>merc</item>
+        <item>audi</item>
+        <item>opel</item>
+
+    </string-array>
+
+    <string-array name="spinner_array_model_bmw">
+
+        <item>m3</item>
+        <item>x6</item>
+        <item>m6</item>
+
+    </string-array>
+
+    <string-array name="spinner_array_model_merc">
+
+        <item>sls</item>
+        <item>C</item>
+        <item>E</item>
+
+    </string-array>
+    <string-array name="spinner_array_model_audi">
+
+        <item>R8</item>
+        <item>A4</item>
+        <item>A6</item>
+
+    </string-array>
+    <string-array name="spinner_array_model_opel">
+
+        <item>corsa</item>
+        <item>astra</item>
+        <item>omega</item>
+
+    </string-array>
+
 </resources>

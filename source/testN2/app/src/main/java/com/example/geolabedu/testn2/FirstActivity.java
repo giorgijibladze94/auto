@@ -53,7 +53,6 @@ public class FirstActivity extends ActionBarActivity {
     DBHelper dbHelper;
     RecyclerView recyclerView;
     public static SQLiteDatabase sqLiteDatabase;
-    CardView cardView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
