@@ -91,7 +91,9 @@ public class FirstActivity extends ActionBarActivity {
                     String image = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_IMAGE));
                     String mail=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_EMAIL));
                     String nomeri=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_PHONE));
-                    VehicleData item2 = new VehicleData(name,fname,image,mail,nomeri);
+                    String categ=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_CATEGORY));
+                    String modeli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_MODEL));
+                    VehicleData item2 = new VehicleData(name,fname,image,mail,nomeri,categ,modeli);
 
                     list.add(item2);
                  } while(c.moveToNext());
@@ -101,7 +103,7 @@ public class FirstActivity extends ActionBarActivity {
 
         }else{
             ArrayList list=new ArrayList();
-            VehicleData data=new VehicleData(null,null,null,null,null);
+            VehicleData data=new VehicleData(null,null,null,null,null,null,null);
             list.add(data);
             MyRecyclerAdapter myRecyclerAdapter=new MyRecyclerAdapter(this, list);
             recyclerView.setAdapter(myRecyclerAdapter);

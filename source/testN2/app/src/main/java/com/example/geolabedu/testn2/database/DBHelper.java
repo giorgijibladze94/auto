@@ -24,6 +24,8 @@ public class DBHelper extends SQLiteOpenHelper {
                     + VehiclContracts.VEHICLE_PERSON_FNAME + " text not null, "
                     + VehiclContracts.VEHICLE_PERSON_EMAIL + " text not null, "
                     + VehiclContracts.VEHICLE_PERSON_PHONE + " text not null, "
+                    + VehiclContracts.VEHICLE_CATEGORY + " text not null, "
+                    + VehiclContracts.VEHICLE_MODEL + " text not null, "
                     + VehiclContracts.VEHICLE_IMAGE + " not null )";
 
     /*

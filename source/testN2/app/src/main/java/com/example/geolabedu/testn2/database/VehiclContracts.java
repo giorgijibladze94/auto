@@ -7,7 +7,8 @@ public class VehiclContracts {
     //all table name
     public static final String  VEHICLE_TABLE_NAME="vehicleTable";
     public static final String  VEHICLE_ID="id";
-//    public static final String  VEHICLE_MODEL="model";
+    public static final String  VEHICLE_CATEGORY="category";
+    public static final String  VEHICLE_MODEL="model";
     public static final String  VEHICLE_PERSON_NAME="name";
     public static final String  VEHICLE_PERSON_FNAME="fname";
     public static final String  VEHICLE_IMAGE="image";

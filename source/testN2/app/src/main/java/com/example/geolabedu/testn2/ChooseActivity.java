@@ -42,8 +42,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-//import static com.example.geolabedu.testn2.MainActivity.url;
-
 
 public class ChooseActivity extends ActionBarActivity {
 
@@ -57,6 +55,7 @@ public class ChooseActivity extends ActionBarActivity {
     Uri url;
     Spinner spinner,spinner1;
     ArrayAdapter<CharSequence> spinnerAdapter;
+    String categ,modeli;
 
 
     @Override
@@ -93,7 +92,8 @@ public class ChooseActivity extends ActionBarActivity {
                 String fname=String.valueOf(editText1.getText());
                 String mail=String.valueOf(editText2.getText());
                 String nomeri=String.valueOf(editText3.getText());
-                VehicleData vehicleData=new VehicleData(name,fname,string,mail,nomeri);
+                modeli=spinner1.getSelectedItem().toString();
+                VehicleData vehicleData=new VehicleData(name,fname,string,mail,nomeri,categ,modeli);
                 List list=new ArrayList();
                 list.add(vehicleData);
 
@@ -104,6 +104,8 @@ public class ChooseActivity extends ActionBarActivity {
                 values.put(VehiclContracts.VEHICLE_IMAGE, data.getImage());
                 values.put(VehiclContracts.VEHICLE_PERSON_EMAIL,data.getMail());
                 values.put(VehiclContracts.VEHICLE_PERSON_PHONE,data.getNomeri());
+                values.put(VehiclContracts.VEHICLE_CATEGORY,data.getCateg());
+                values.put(VehiclContracts.VEHICLE_MODEL,data.getModeli());
                 FirstActivity.sqLiteDatabase.insert(VehiclContracts.VEHICLE_TABLE_NAME, null, values);
 
 //                Cursor c = FirstActivity.sqLiteDatabase.query(VehiclContracts.VEHICLE_TABLE_NAME, null, null, null, null, null, null);
@@ -135,6 +137,23 @@ public class ChooseActivity extends ActionBarActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //aq unda davwero rom meore spinneri iyos pirvelze damokidebuli
+                int count=parent.getCount();
+                categ= (String) spinner.getItemAtPosition(position);
+                switch (position){
+                    case 0:
+                        ArrayAdapter adapter=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_null,android.R.layout.simple_spinner_item);
+                        spinner1.setAdapter(adapter);
+                        break;
+                    case 1:
+                        ArrayAdapter adapter_bmw=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_bmw,android.R.layout.simple_spinner_item);
+                        spinner1.setAdapter(adapter_bmw);
+                        break;
+                    case 2:
+                        ArrayAdapter adapter_merc=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_merc,android.R.layout.simple_spinner_item);
+                        spinner1.setAdapter(adapter_merc);
+                        break;
+                    //dasamatebelia case-ebi :)))))))))
+                }
             }
 
             @Override

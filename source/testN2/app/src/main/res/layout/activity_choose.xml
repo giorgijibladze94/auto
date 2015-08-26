@@ -96,6 +96,16 @@
         android:layout_toLeftOf="@+id/edit_nomeri"
         android:layout_below="@+id/edit_mail"/>
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <EditText
+            android:layout_width="170dp"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
+
 </RelativeLayout>
 
     <Button

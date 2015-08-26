@@ -13,19 +13,36 @@ public class VehicleData implements Serializable {
     private String fname;
     private String image;
     private String nomeri;
-    private String mail;
+    private String mail,categ,modeli;
 
-    public VehicleData(String name, String fname, String image,String mail,String nomeri) {
+    public VehicleData(String name, String fname, String image,String mail,String nomeri,String categ,String modeli) {
         this.name = name;
         this.fname = fname;
         this.image = image;
         this.mail=mail;
         this.nomeri=nomeri;
-
+        this.categ=categ;
+        this.modeli=modeli;
     }
 
     public String getNomeri() {
         return nomeri;
+    }
+
+    public String getCateg() {
+        return categ;
+    }
+
+    public void setCateg(String categ) {
+        this.categ = categ;
+    }
+
+    public String getModeli() {
+        return modeli;
+    }
+
+    public void setModeli(String modeli) {
+        this.modeli = modeli;
     }
 
     public void setNomeri(String nomeri) {
