@@ -14,5 +14,7 @@ public class VehiclContracts {
     public static final String  VEHICLE_IMAGE="image";
     public static final String  VEHICLE_PERSON_EMAIL="Mail";
     public static final String  VEHICLE_PERSON_PHONE="nomeri";
+    public static final String  VEHICLE_AGE="weli";
+    public static final String  VEHICLE_DESCRIPTION="description";
 
 }

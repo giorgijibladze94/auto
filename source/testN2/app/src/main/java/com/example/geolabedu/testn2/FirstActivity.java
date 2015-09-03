@@ -1,7 +1,6 @@
 package com.example.geolabedu.testn2;
 
 import android.app.AlertDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,22 +14,15 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
-import com.example.geolabedu.testn2.Adapter.CustomAdapter;
 import com.example.geolabedu.testn2.Adapter.MyRecyclerAdapter;
-import com.example.geolabedu.testn2.Datadb.Test;
 import com.example.geolabedu.testn2.database.DBHelper;
 import com.example.geolabedu.testn2.database.VehiclContracts;
 import com.example.geolabedu.testn2.database.VehicleData;
@@ -93,7 +85,10 @@ public class FirstActivity extends ActionBarActivity {
                     String nomeri=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_PHONE));
                     String categ=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_CATEGORY));
                     String modeli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_MODEL));
-                    VehicleData item2 = new VehicleData(name,fname,image,mail,nomeri,categ,modeli);
+                    String weli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_AGE));
+                    Integer ID=c.getInt(c.getColumnIndex(VehiclContracts.VEHICLE_ID));
+                    String decsk=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_DESCRIPTION));
+                    VehicleData item2 = new VehicleData(ID,name,fname,image,mail,nomeri,categ,modeli,weli,decsk);
 
                     list.add(item2);
                  } while(c.moveToNext());
@@ -103,21 +98,12 @@ public class FirstActivity extends ActionBarActivity {
 
         }else{
             ArrayList list=new ArrayList();
-            VehicleData data=new VehicleData(null,null,null,null,null,null,null);
+            VehicleData data=new VehicleData(null,null,null,null,null,null,null,null,null);
             list.add(data);
             MyRecyclerAdapter myRecyclerAdapter=new MyRecyclerAdapter(this, list);
             recyclerView.setAdapter(myRecyclerAdapter);
         }
 
-
-
-
-
-//        datas=new ArrayList<>();
-//        datas.add(new VehicleData("1","mercedes","Giorgi"));
-//        datas.add(new VehicleData("2","bmw","Gurami"));
-//        datas.add(new VehicleData("3","nissan","Giorgi"));
-//        datas.add(new VehicleData("4","mercedes","Giorgi"));
 
 //        for(int i=0;i <datas.size();i++){
 //            VehicleData vehicleData=datas.get(i);
@@ -130,20 +116,6 @@ public class FirstActivity extends ActionBarActivity {
 //            db.insert(VehiclContracts.VEHICLE_TABLE_NAME,null,values);
 //        }
 
-/*
-* select bazidan
-* */
-//        Cursor c = db.query(VehiclContracts.VEHICLE_TABLE_NAME, null, null, null, null, null, null);
-//
-//        if(c.moveToFirst()){
-//            do {
-//                String name = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_NAME));
-//                String fname = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_PERSON_FNAME));
-//                String image = c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_IMAGE));
-//                VehicleData item2 = new VehicleData(name,fname,image);
-//                list.add(item2);
-//            } while(c.moveToNext());
-//        }
 
 //        listView= (ListView) findViewById(R.id.listView);
 //        viewImage=(ImageView)findViewById(R.id.imageView);

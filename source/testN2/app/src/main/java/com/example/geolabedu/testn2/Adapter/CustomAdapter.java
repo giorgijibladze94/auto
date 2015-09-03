@@ -7,7 +7,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.geolabedu.testn2.FirstActivity;
 import com.example.geolabedu.testn2.R;
 import com.example.geolabedu.testn2.TestDescription;
 
@@ -50,12 +49,6 @@ public class CustomAdapter extends BaseAdapter {
         if(view==null){
             item=View.inflate(context, R.layout.listview_item,null);
             textView=new TestView();
-
-           // ImageView imageView= (ImageView) item.findViewById(R.id.imageView);
-           // TextView textView1= (TextView) item.findViewById(R.id.textView);
-
-           // textView.view=imageView;
-            //textView.textView=textView1;
 
             item.setTag(textView);
         }else {

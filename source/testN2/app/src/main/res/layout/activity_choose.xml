@@ -84,7 +84,7 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weli"
+        android:id="@+id/modeli"
         android:layout_toRightOf="@+id/edit_mail"
         android:layout_below="@+id/edit_nomeri"
         />
@@ -92,17 +92,35 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/modeli"
+        android:id="@+id/categ"
         android:layout_toLeftOf="@+id/edit_nomeri"
         android:layout_below="@+id/edit_mail"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content">
+        android:layout_width="wrap_content"
+        android:id="@+id/edit_weli"
+        android:layout_below="@+id/categ">
 
         <EditText
             android:layout_width="170dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/weli"
+            android:hint="weli"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_weli"
+        >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/diskription"
+            android:hint="dazianebis mokle aghwera" />
 
     </android.support.design.widget.TextInputLayout>
 

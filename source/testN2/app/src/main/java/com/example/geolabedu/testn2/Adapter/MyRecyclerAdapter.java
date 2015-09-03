@@ -16,7 +16,6 @@ import com.example.geolabedu.testn2.DetailsActivity;
 import com.example.geolabedu.testn2.R;
 import com.example.geolabedu.testn2.database.VehicleData;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**

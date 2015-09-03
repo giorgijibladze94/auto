@@ -19,13 +19,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String CREATE_VEHICLE_TABLE =
             "CREATE TABLE " + VehiclContracts.VEHICLE_TABLE_NAME + "("
-                    + VehiclContracts.VEHICLE_ID + " String,"
+                    + VehiclContracts.VEHICLE_ID + " integer primary key autoincrement,"
                     + VehiclContracts.VEHICLE_PERSON_NAME + " text not null, "
                     + VehiclContracts.VEHICLE_PERSON_FNAME + " text not null, "
                     + VehiclContracts.VEHICLE_PERSON_EMAIL + " text not null, "
                     + VehiclContracts.VEHICLE_PERSON_PHONE + " text not null, "
                     + VehiclContracts.VEHICLE_CATEGORY + " text not null, "
                     + VehiclContracts.VEHICLE_MODEL + " text not null, "
+                    + VehiclContracts.VEHICLE_AGE + " text not null, "
+                    + VehiclContracts.VEHICLE_DESCRIPTION + " text not null, "
                     + VehiclContracts.VEHICLE_IMAGE + " not null )";
 
     /*

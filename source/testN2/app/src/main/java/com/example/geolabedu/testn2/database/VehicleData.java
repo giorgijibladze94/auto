@@ -1,7 +1,5 @@
 package com.example.geolabedu.testn2.database;
 
-import android.text.Editable;
-
 import java.io.Serializable;
 
 /**
@@ -9,13 +7,14 @@ import java.io.Serializable;
  */
 public class VehicleData implements Serializable {
 
+    private Integer ID;
     private String name;
     private String fname;
     private String image;
     private String nomeri;
-    private String mail,categ,modeli;
+    private String mail,categ,modeli,weli,decskr;
 
-    public VehicleData(String name, String fname, String image,String mail,String nomeri,String categ,String modeli) {
+    public VehicleData(String name, String fname, String image,String mail,String nomeri,String categ,String modeli,String weli,String decskr) {
         this.name = name;
         this.fname = fname;
         this.image = image;
@@ -23,6 +22,45 @@ public class VehicleData implements Serializable {
         this.nomeri=nomeri;
         this.categ=categ;
         this.modeli=modeli;
+        this.weli=weli;
+        this.decskr=decskr;
+    }
+
+    public VehicleData(Integer ID, String name, String fname, String image, String nomeri, String mail, String categ, String modeli, String weli, String decskr) {
+        this.ID = ID;
+        this.name = name;
+        this.fname = fname;
+        this.image = image;
+        this.nomeri = nomeri;
+        this.mail = mail;
+        this.categ = categ;
+        this.modeli = modeli;
+        this.weli = weli;
+        this.decskr = decskr;
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public void setID(Integer ID) {
+        this.ID = ID;
+    }
+
+    public String getWeli() {
+        return weli;
+    }
+
+    public void setWeli(String weli) {
+        this.weli = weli;
+    }
+
+    public String getDecskr() {
+        return decskr;
+    }
+
+    public void setDecskr(String decskr) {
+        this.decskr = decskr;
     }
 
     public String getNomeri() {

@@ -1,19 +1,20 @@
 package com.example.geolabedu.testn2;
 
+import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.geolabedu.testn2.database.VehicleData;
 
-import java.util.List;
-
 public class DetailsActivity extends AppCompatActivity {
 
+    int ID;
     ImageView imageView;
     TextView textView,textView1,textView2,textView3;
 
@@ -35,6 +36,8 @@ public class DetailsActivity extends AppCompatActivity {
         textView1.setText(data.getFname());
         textView2.setText(data.getMail());
         textView3.setText(data.getNomeri());
+
+        ID=data.getID();
     }
 
     @Override
@@ -44,6 +47,7 @@ public class DetailsActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -52,7 +56,12 @@ public class DetailsActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.settings)
+        {
+            Toast.makeText(this,"click",Toast.LENGTH_LONG).show();
+            Intent intent=new Intent(this,ChooseActivity.class);
+            intent.putExtra("edit",ID);
+            startActivity(intent);
             return true;
         }
 
