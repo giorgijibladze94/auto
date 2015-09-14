@@ -13,7 +13,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.geolabedu.testn2.Adapter.MyRecyclerAdapter;
 import com.example.geolabedu.testn2.database.DBHelper;
@@ -37,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class FirstActivity extends ActionBarActivity {
+public class FirstActivity extends ActionBarActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     String path;
     long l;
@@ -45,17 +49,31 @@ public class FirstActivity extends ActionBarActivity {
     DBHelper dbHelper;
     RecyclerView recyclerView;
     public static SQLiteDatabase sqLiteDatabase;
+    android.support.v7.widget.Toolbar toolbar;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
 
-
         dbHelper=new DBHelper(this);
         sqLiteDatabase=dbHelper.getWritableDatabase();
 
-        //cardView= (CardView) findViewById();
+        toolbar= (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        navigationView= (NavigationView) findViewById(R.id.navigationview);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        drawerLayout= (DrawerLayout) findViewById(R.id.drawerlayout);
+        actionBarDrawerToggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.open,R.string.close);//akontrolebs ghiaa tu ara
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+
         recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);//itokshi ar vici ras aketebs
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
@@ -139,7 +157,9 @@ public class FirstActivity extends ActionBarActivity {
 
     }
 
-        private void selectImage() {
+
+
+    private void selectImage() {
 
             final CharSequence[] options = { "Take Photo", "Choose from Gallery","Cancel" };
 
@@ -286,5 +306,18 @@ public class FirstActivity extends ActionBarActivity {
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
         return Uri.parse(path);
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.navigationview_item_1:
+                Toast.makeText(this,"click_1",Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.navigationview_item_2:
+                Toast.makeText(this,"click_2",Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
     }
 }

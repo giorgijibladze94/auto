@@ -140,12 +140,14 @@ public class ChooseActivity extends ActionBarActivity {
                 String categ=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_CATEGORY));   //spinnershi rogor gamovachino???????????????
                 String modeli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_MODEL));
                 String weli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_AGE));
+                String desc=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_DESCRIPTION));
                 editname.setText(name);
                 editfname.setText(fname);
                 imageView.setImageURI(Uri.parse(image));
                 editmail.setText(mail);
                 editnomeri.setText(nomeri);
                 editweli.setText(weli);
+                editdisck.setText(desc);
             }while (c.moveToNext());
         }
     }

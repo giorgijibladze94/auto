@@ -9,6 +9,9 @@
     <string name="title_activity_choose">ChooseActivity</string>
     <string name="title_activity_detail">DetailActivity</string>
 
+    <string name="open">open</string>
+    <string name="close">close</string>
+
     <string-array name="spinner_array_categ">
 
         <item>categoria</item>
