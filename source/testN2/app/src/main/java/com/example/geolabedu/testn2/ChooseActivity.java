@@ -52,7 +52,7 @@ public class ChooseActivity extends ActionBarActivity {
     Button bt;
     public static CardView cardView;
     Uri url;
-    Spinner spinner_cate,spinner_model;
+    Spinner spinnercate,spinnermodel;
     ArrayAdapter<CharSequence> spinnerAdapter;
     String categ,modeli;
 
@@ -63,8 +63,8 @@ public class ChooseActivity extends ActionBarActivity {
         setContentView(R.layout.activity_choose);
 
 
-        spinner_cate= (Spinner) findViewById(R.id.categ);
-        spinner_model= (Spinner) findViewById(R.id.modeli);
+        spinnercate= (Spinner) findViewById(R.id.categ);
+        spinnermodel= (Spinner) findViewById(R.id.modeli);
         cardView= (CardView) findViewById(R.id.cardlist_item);
         editfname= (EditText) findViewById(R.id.gvari);
         editmail= (EditText) findViewById(R.id.mail);
@@ -97,7 +97,7 @@ public class ChooseActivity extends ActionBarActivity {
                 String fname=String.valueOf(editfname.getText());
                 String mail=String.valueOf(editmail.getText());
                 String nomeri=String.valueOf(editnomeri.getText());
-                modeli=spinner_model.getSelectedItem().toString();
+                modeli=spinnermodel.getSelectedItem().toString();
                 String weli= String.valueOf(editweli.getText());
                 String decskr= String.valueOf(editdisck.getText());
                 VehicleData vehicleData=new VehicleData(name,fname,string,mail,nomeri,categ,modeli,weli,decskr);
@@ -142,6 +142,10 @@ public class ChooseActivity extends ActionBarActivity {
                 String weli=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_AGE));
                 String desc=c.getString(c.getColumnIndex(VehiclContracts.VEHICLE_DESCRIPTION));
                 editname.setText(name);
+
+//                spinnerAdapter=ArrayAdapter.createFromResource(this,R.array.spinner_array_categ,android.R.layout.simple_spinner_item);
+//                spinnercate.setAdapter(spinnerAdapter);
+
                 editfname.setText(fname);
                 imageView.setImageURI(Uri.parse(image));
                 editmail.setText(mail);
@@ -154,25 +158,25 @@ public class ChooseActivity extends ActionBarActivity {
 
     private void spinnerfill() {
         spinnerAdapter=ArrayAdapter.createFromResource(ChooseActivity.this, R.array.spinner_array_categ, android.R.layout.simple_spinner_item);
-        spinner_cate.setAdapter(spinnerAdapter);
-        spinner_cate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnercate.setAdapter(spinnerAdapter);
+        spinnercate.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //aq unda davwero rom meore spinneri iyos pirvelze damokidebuli
                 int count=parent.getCount();
-                categ= (String) spinner_cate.getItemAtPosition(position);
+                categ= (String) spinnercate.getItemAtPosition(position);
                 switch (position){
                     case 0:
                         ArrayAdapter adapter=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_null,android.R.layout.simple_spinner_item);
-                        spinner_model.setAdapter(adapter);
+                        spinnermodel.setAdapter(adapter);
                         break;
                     case 1:
                         ArrayAdapter adapter_bmw=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_bmw,android.R.layout.simple_spinner_item);
-                        spinner_model.setAdapter(adapter_bmw);
+                        spinnermodel.setAdapter(adapter_bmw);
                         break;
                     case 2:
                         ArrayAdapter adapter_merc=ArrayAdapter.createFromResource(ChooseActivity.this,R.array.spinner_array_model_merc,android.R.layout.simple_spinner_item);
-                        spinner_model.setAdapter(adapter_merc);
+                        spinnermodel.setAdapter(adapter_merc);
                         break;
                     //dasamatebelia case-ebi :)))))))))
                 }

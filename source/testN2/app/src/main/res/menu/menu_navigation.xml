@@ -4,15 +4,20 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:icon="@mipmap/ic_launcher"
-            android:title="Item_1"
+            android:icon="@drawable/iconhome"
+            android:title="მთავარი"
             android:id="@+id/navigationview_item_1"
             android:checked="true"/>
 
         <item
-            android:icon="@mipmap/ic_launcher"
-            android:title="Item_1"
+            android:icon="@drawable/iconcar"
+            android:title="დამატება"
             android:id="@+id/navigationview_item_2"/>
+
+        <item
+            android:icon="@drawable/iconcontacts"
+            android:title="კონტაქტი"
+            android:id="@+id/navigationview_item_3"/>
 
     </group>
 

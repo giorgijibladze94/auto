@@ -1,5 +1,6 @@
 package com.example.geolabedu.testn2;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -23,6 +25,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -54,6 +58,7 @@ public class FirstActivity extends ActionBarActivity implements NavigationView.O
     NavigationView navigationView;
     DrawerLayout drawerLayout;
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +85,11 @@ public class FirstActivity extends ActionBarActivity implements NavigationView.O
         recyclerView.setLayoutManager(linearLayoutManager);
 
 
-
+        //statusbar change color
+        Window window =getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(getResources().getColor(R.color.statusrose));
 
 //        if (getIntent().hasExtra("list")) {
 //            ArrayList data = (ArrayList) getIntent().getExtras().getSerializable("list");

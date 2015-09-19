@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -17,6 +18,7 @@ public class DetailsActivity extends AppCompatActivity {
     int ID;
     ImageView imageView;
     TextView textView,textView1,textView2,textView3;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,10 @@ public class DetailsActivity extends AppCompatActivity {
         textView3.setText(data.getNomeri());
 
         ID=data.getID();
+
+        toolbar= (Toolbar) findViewById(R.id.detal_toolbar);
+        //s
+        setSupportActionBar(toolbar);
     }
 
     @Override
